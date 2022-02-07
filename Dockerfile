@@ -1,4 +1,4 @@
-ARG ARGOCD_VERSION=v2.2.4
+ARG ARGOCD_VERSION
 
 FROM quay.io/argoproj/argocd:$ARGOCD_VERSION
 

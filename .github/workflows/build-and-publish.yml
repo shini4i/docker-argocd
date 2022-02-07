@@ -3,7 +3,7 @@ name: Build and Publish
 on:
   push:
     tags:
-      - '*'
+      - 'v*.*.*'
 
 jobs:
   build-and-push-docker-image:
@@ -32,3 +32,5 @@ jobs:
           tags: |
             ghcr.io/shini4i/argocd:${{github.ref_name}}
           push: true
+          build-args: |
+            ARGOCD_VERSION=${{github.ref_name}}
