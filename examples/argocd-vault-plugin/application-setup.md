@@ -39,6 +39,7 @@ Content of test/.charts/vault-enabled-setup path:
                                     |- Chart.yaml
                                     |- templates --
                                                   |- app.yaml
+                                                  |- secret.yaml
 ```
 app.yaml
 ```yaml
@@ -61,11 +62,22 @@ spec:
 
   destination:
     server: https://kubernetes.default.svc
-    namespace: operators
+    namespace: example
 
   syncPolicy:
     automated:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+```
+secret.yaml
+```
+apiVersion: v1
+kind: Secret
+metadata:
+  name: example-secret
+  namespace: example
+type: Opaque
+stringData:
+    test: "<path:argocd/data/super-secret#TEST>"
 ```
