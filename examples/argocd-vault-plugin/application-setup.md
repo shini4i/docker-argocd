@@ -79,5 +79,5 @@ metadata:
   namespace: example
 type: Opaque
 stringData:
-    test: "<path:argocd/data/super-secret#TEST>"
+  test: "<path:argocd/data/super-secret#TEST>"
 ```
