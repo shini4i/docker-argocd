@@ -32,3 +32,5 @@ jobs:
           tags: |
             ghcr.io/shini4i/argocd:${{github.ref_name}}
           push: true
+          build-args: |
+            ARGOCD_VERSION=${{github.ref_name}}
