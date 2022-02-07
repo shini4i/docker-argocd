@@ -44,7 +44,7 @@ AVP_SECRET_ID: secret_id
 AVP_KV_VERSION: 2
 ```
 ## Password protected helm chart repository
-To make the setup work in case of password protected helm chart the following changes are required:
+To make the setup work in case of password protected helm charts repositories the following changes are required:
 ```yaml
 server:
   config:
