@@ -71,7 +71,7 @@ spec:
       - CreateNamespace=true
 ```
 secret.yaml
-```
+```yaml
 apiVersion: v1
 kind: Secret
 metadata:
