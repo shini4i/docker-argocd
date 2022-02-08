@@ -1,5 +1,6 @@
 # Application configuration example
-
+## General information
+The following examples might look a bit odd, but currently, it's not possible to use values substitution in Application CRD without a "proxy" chart. Hence, for now, we are using a "proxy" helm chart to deploy Applications requiring plain text credentials to be passed to the resulting helm chart.
 ## Minimal configuration
 application.yaml
 ```yaml
