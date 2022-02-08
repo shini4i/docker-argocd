@@ -26,7 +26,7 @@ jobs:
           password: ${{ secrets.GHCR_PAT }}
 
       - name: Extract argo-cd version
-        uses: bhowell2/github-substring-action
+        uses: bhowell2/github-substring-action@v1
         id: argocd
         with:
           value: ${{ github.ref_name }}
