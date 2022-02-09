@@ -14,4 +14,5 @@ ADD --chown=argocd:argocd --chmod=700 \
     https://github.com/mozilla/sops/releases/download/v${SOPS_VERSION}/sops-v${SOPS_VERSION}.linux \
     /usr/local/bin/sops
 
+# To make it work set env HELM_PLUGINS to "/home/argocd/.local/share/helm/plugins/"
 RUN helm plugin install --version ${HELM_SECRETS_VERSION} https://github.com/jkroepke/helm-secrets
