@@ -25,12 +25,18 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GHCR_PAT }}
 
+      - name: Extract argo-cd version
+        id: argocd
+        run: |
+          version=$(echo ${{github.ref_name}} | cut -b 1-6)
+          echo "::set-output name=version::$version"
+
       - name: Build image and push to GitHub Container Registry
         uses: docker/build-push-action@v2
         with:
           context: .
           tags: |
-            ghcr.io/shini4i/argocd:${{github.ref_name}}
+            ghcr.io/shini4i/argocd:${{ github.ref_name }}
           push: true
           build-args: |
-            ARGOCD_VERSION=${{github.ref_name}}
+            ARGOCD_VERSION=${{ steps.argocd.outputs.version }}
