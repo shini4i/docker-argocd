@@ -3,11 +3,15 @@
 ## Minimal configuration
 If ArgoCD is installed using the official helm chart the following configuration should be sufficient to make it work:
 ```yaml
+server:
+  config:
+    helm.valuesFileSchemes: https, secrets+age-import
+
 repoServer:
   image:
     repository: ghcr.io/shini4i/argocd
-    tag: v2.2.3-sops-test
-    imagePullPolicy: Always
+    tag: v2.3.0
+    imagePullPolicy: IfNotPresent
 
   volumes:
     - name: credentials

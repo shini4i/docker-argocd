@@ -17,7 +17,7 @@ server:
 repoServer:
   image:
     repository: ghcr.io/shini4i/argocd
-    tag: v2.2.5
+    tag: v2.3.0
     imagePullPolicy: IfNotPresent
 
   volumes:
@@ -60,7 +60,7 @@ server:
 repoServer:
   image:
     repository: ghcr.io/shini4i/argocd
-    tag: v2.2.5
+    tag: v2.3.0
     imagePullPolicy: IfNotPresent
 
   volumes:
