@@ -9,7 +9,7 @@
       "fileMatch": ["^Dockerfile$"],
       "matchStrings": ["ENV ARGOCD_VAULT_PLUGIN_VERSION=(?<currentValue>.*)"],
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": " argoproj-labs/argocd-vault-plugin"
+      "depNameTemplate": "argoproj-labs/argocd-vault-plugin"
     },
     {
       "fileMatch": ["^Dockerfile$"],
