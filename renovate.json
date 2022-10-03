@@ -4,6 +4,7 @@
     "config:base",
     ":semanticCommits"
   ],
+  "dependencyDashboard": true,
   "regexManagers": [
     {
       "fileMatch": ["^Dockerfile$"],
