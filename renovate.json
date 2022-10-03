@@ -9,7 +9,8 @@
       "fileMatch": ["^Dockerfile$"],
       "matchStrings": ["ENV ARGOCD_VAULT_PLUGIN_VERSION=(?<currentValue>.*)"],
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "argoproj-labs/argocd-vault-plugin"
+      "depNameTemplate": "argoproj-labs/argocd-vault-plugin",
+      "extractVersionTemplate": "^v(?<version>.*)$"
     },
     {
       "fileMatch": ["^Dockerfile$"],
@@ -21,7 +22,8 @@
       "fileMatch": ["^Dockerfile$"],
       "matchStrings": ["ENV HELM_SECRETS_VERSION=(?<currentValue>.*)"],
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "jkroepke/helm-secrets"
+      "depNameTemplate": "jkroepke/helm-secrets",
+      "extractVersionTemplate": "^v(?<version>.*)$"
     }
   ],
   "automerge": true,
