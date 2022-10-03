@@ -1,0 +1,29 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base",
+    ":semanticCommits"
+  ],
+  "regexManagers": [
+    {
+      "fileMatch": ["^Dockerfile$"],
+      "matchStrings": ["ENV ARGOCD_VAULT_PLUGIN_VERSION=(?<currentValue>.*)"],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": " argoproj-labs/argocd-vault-plugin"
+    },
+    {
+      "fileMatch": ["^Dockerfile$"],
+      "matchStrings": ["ENV SOPS_VERSION=(?<currentValue>.*)"],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "mozilla/sops"
+    },
+    {
+      "fileMatch": ["^Dockerfile$"],
+      "matchStrings": ["ENV HELM_SECRETS_VERSION=(?<currentValue>.*)"],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "jkroepke/helm-secrets"
+    }
+  ],
+  "automerge": true,
+  "platformAutomerge": true
+}
