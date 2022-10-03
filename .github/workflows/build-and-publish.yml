@@ -2,8 +2,10 @@ name: Build and Publish
 
 on:
   push:
-    tags:
-      - 'v*.*.*'
+    branches:
+      - main
+    paths:
+      - 'Dockerfile'
 
 jobs:
   build-and-push-docker-image:
@@ -13,6 +15,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
 
       - name: Set up Docker Buildx
         id: buildx
@@ -25,18 +29,17 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GHCR_PAT }}
 
-      - name: Extract argo-cd version
-        id: argocd
-        run: |
-          version=$(echo ${{github.ref_name}} | cut -b 1-6)
-          echo "::set-output name=version::$version"
+      - name: Check if source image was changed
+        run: echo "FROM_CHANGED=$(git diff HEAD^:Dockerfile HEAD:Dockerfile | grep +FROM | wc -l | awk '{ print $1 }')" >> $GITHUB_ENV
+
+      - name: Extract ArgoCD version
+        run: echo "ARGOCD_VERSION=$(grep FROM Dockerfile | awk -F'[:]' '{ print $2 }')" >> $GITHUB_ENV
 
       - name: Build image and push to GitHub Container Registry
         uses: docker/build-push-action@v3
         with:
           context: .
           tags: |
-            ghcr.io/shini4i/argocd:${{ github.ref_name }}
+            ghcr.io/shini4i/argocd:${{ env.ARGOCD_VERSION }}
           push: true
-          build-args: |
-            ARGOCD_VERSION=${{ steps.argocd.outputs.version }}
+        if: env.FROM_CHANGED != 0
