@@ -28,6 +28,5 @@
     }
   ],
   "automerge": true,
-  "automergeType": "branch",
   "platformAutomerge": true
 }
