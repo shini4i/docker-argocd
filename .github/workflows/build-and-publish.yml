@@ -43,3 +43,9 @@ jobs:
             ghcr.io/shini4i/argocd:${{ env.ARGOCD_VERSION }}
           push: true
         if: env.FROM_CHANGED != 0
+
+      - name: Add git tag
+        run: |
+          git tag ${{ env.ARGOCD_VERSION }}
+          git push origin ${{ env.ARGOCD_VERSION }}
+        if: env.FROM_CHANGED != 0
