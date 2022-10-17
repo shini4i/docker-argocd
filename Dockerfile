@@ -1,4 +1,4 @@
-FROM quay.io/argoproj/argocd:v2.4.14
+FROM quay.io/argoproj/argocd:v2.4.15
 
 ENV ARGOCD_VAULT_PLUGIN_VERSION=1.13.0
 ENV SOPS_VERSION=3.7.3
