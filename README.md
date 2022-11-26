@@ -3,6 +3,10 @@
 # ArgoCD
 This project's purpose is to create ArgoCD docker image with custom tools.<br>
 
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/shini4i/docker-argocd/Build%20and%20Publish?style=flat-square)
+![GitHub last commit (branch)](https://img.shields.io/github/last-commit/shini4i/docker-argocd/main?style=flat-square)
+![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/shini4i/docker-argocd?style=flat-square)
+
 <img src="https://raw.githubusercontent.com/shini4i/assets/main/src/argo-cd/argo.png" alt="Showcase">
 
 </div>
