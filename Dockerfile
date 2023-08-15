@@ -2,7 +2,7 @@ FROM quay.io/argoproj/argocd:v2.8.0
 
 ENV ARGOCD_VAULT_PLUGIN_VERSION=1.15.0
 ENV SOPS_VERSION=3.7.3
-ENV HELM_SECRETS_VERSION=4.4.2
+ENV HELM_SECRETS_VERSION=4.5.0
 
 ADD --chown=argocd:argocd --chmod=700 \
     https://github.com/argoproj-labs/argocd-vault-plugin/releases/download/v${ARGOCD_VAULT_PLUGIN_VERSION}/argocd-vault-plugin_${ARGOCD_VAULT_PLUGIN_VERSION}_linux_amd64 \
