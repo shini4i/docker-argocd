@@ -1,7 +1,7 @@
 FROM quay.io/argoproj/argocd:v2.8.5
 
 ENV ARGOCD_VAULT_PLUGIN_VERSION=1.16.1
-ENV SOPS_VERSION=3.7.3
+ENV SOPS_VERSION=v3.8.1
 ENV HELM_SECRETS_VERSION=4.5.1
 
 ADD --chown=argocd:argocd --chmod=700 \
