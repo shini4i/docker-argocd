@@ -9,7 +9,7 @@ ADD --chown=argocd:argocd --chmod=700 \
     /usr/local/bin/argocd-vault-plugin
 
 ADD --chown=argocd:argocd --chmod=700 \
-    https://github.com/mozilla/sops/releases/download/v${SOPS_VERSION}/sops-v${SOPS_VERSION}.linux.amd64 \
+    https://github.com/mozilla/sops/releases/download/${SOPS_VERSION}/sops-${SOPS_VERSION}.linux.amd64 \
     /usr/local/bin/sops
 
 # To make it work set env HELM_PLUGINS to "/home/argocd/.local/share/helm/plugins/"
