@@ -1,34 +1,49 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base",
+    "config:recommended",
     ":semanticCommits"
   ],
   "dependencyDashboard": true,
-  "regexManagers": [
+  "customManagers": [
     {
-      "fileMatch": ["^Dockerfile$"],
-      "matchStrings": ["ENV ARGOCD_VAULT_PLUGIN_VERSION=(?<currentValue>.*)"],
+      "customType": "regex",
+      "fileMatch": [
+        "^Dockerfile$"
+      ],
+      "matchStrings": [
+        "ENV ARGOCD_VAULT_PLUGIN_VERSION=(?<currentValue>.*)"
+      ],
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "argoproj-labs/argocd-vault-plugin",
       "extractVersionTemplate": "^v(?<version>.*)$"
     },
     {
-      "fileMatch": ["^Dockerfile$"],
-      "matchStrings": ["ENV SOPS_VERSION=(?<currentValue>.*)"],
+      "customType": "regex",
+      "fileMatch": [
+        "^Dockerfile$"
+      ],
+      "matchStrings": [
+        "ENV SOPS_VERSION=(?<currentValue>.*)"
+      ],
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "mozilla/sops"
     },
     {
-      "fileMatch": ["^Dockerfile$"],
-      "matchStrings": ["ENV HELM_SECRETS_VERSION=(?<currentValue>.*)"],
+      "customType": "regex",
+      "fileMatch": [
+        "^Dockerfile$"
+      ],
+      "matchStrings": [
+        "ENV HELM_SECRETS_VERSION=(?<currentValue>.*)"
+      ],
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "jkroepke/helm-secrets",
       "extractVersionTemplate": "^v(?<version>.*)$"
     }
   ],
   "automerge": true,
-  "stabilityDays": 1,
+  "minimumReleaseAge": "1 day",
   "prCreation": "not-pending",
   "platformAutomerge": true
 }
