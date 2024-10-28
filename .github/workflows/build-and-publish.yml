@@ -21,6 +21,8 @@ jobs:
       - name: Set up Docker Buildx
         id: buildx
         uses: docker/setup-buildx-action@v3
+        with:
+          install: true
 
       - name: Login to Github Packages
         uses: docker/login-action@v3
@@ -35,10 +37,13 @@ jobs:
       - name: Extract ArgoCD version
         run: echo "ARGOCD_VERSION=$(grep FROM Dockerfile | awk -F'[:]' '{ print $2 }')" >> $GITHUB_ENV
 
-      - name: Build image and push to GitHub Container Registry
+      - name: Build and push multi-architecture image
         uses: docker/build-push-action@v6
         with:
           context: .
+          platforms: linux/amd64,linux/arm64
+          build-args: |
+            ARCH=${{ inputs.arch }}
           tags: |
             ghcr.io/shini4i/argocd:${{ env.ARGOCD_VERSION }}
           push: true
