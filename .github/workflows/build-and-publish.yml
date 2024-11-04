@@ -42,8 +42,6 @@ jobs:
         with:
           context: .
           platforms: linux/amd64,linux/arm64
-          build-args: |
-            ARCH=${{ inputs.arch }}
           tags: |
             ghcr.io/shini4i/argocd:${{ env.ARGOCD_VERSION }}
           push: true
