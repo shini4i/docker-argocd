@@ -1,4 +1,4 @@
-FROM quay.io/argoproj/argocd:v2.14.5
+FROM quay.io/argoproj/argocd:v2.14.7
 
 ARG TARGETARCH
 
